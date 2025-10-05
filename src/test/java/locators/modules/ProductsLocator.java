@@ -5,7 +5,7 @@ import utils.enums.LocatorTypes;
 
 public enum ProductsLocator implements LocatorDefault {
 
-    ADD_PRODUCT_BUTTON("//*[contains(@class,\"productinfo\")]//h2[normalize-space()=\"ITEM\"]/following-sibling::a", LocatorTypes.XPATH),
+    ADD_PRODUCT_BUTTON("//*[contains(@class,\"productinfo\")]//h2[normalize-space()=\"ITEM\"]/following-sibling::p[normalize-space()=\"itemName\"]/following-sibling::a", LocatorTypes.XPATH),
     CONTINUE_SHOPING_BUTTON("//button[normalize-space()=\"Continue Shopping\"]", LocatorTypes.XPATH);
 
     private final String val;

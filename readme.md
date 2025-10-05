@@ -84,7 +84,7 @@ para execução de métodos programada.</span>
 </div>
 <br>
 
-3. Cadastre o arquivo <b>NomeDaFuncionalidade<span style="color: rgb(255, 196, 0)">Steps</span>.java</b> em [`SelniumBeta\src\test\java\steps`](src/test/java/steps).
+3. Cadastre o arquivo <b>NomeDaFuncionalidade<span style="color: rgb(255, 196, 0)">Steps</span>.java</b> em [`SeleniumBeta\src\test\java\steps`](src/test/java/steps).
 
 4. Edite o arquivo <b>steps</b> utilizando o seguinte padrão:
 
@@ -108,7 +108,7 @@ public class HomeSteps {
 ```
 
 
-5. Cadastre o arquivo <b>NomeDaFuncionalidade<span style="color: rgb(0, 242, 255)">Page</span>.java</b> em [`SelniumBeta\src\test\java\pages`](src/test/java/pages).
+5. Cadastre o arquivo <b>NomeDaFuncionalidade<span style="color: rgb(0, 242, 255)">Page</span>.java</b> em [`SeleniumBeta\src\test\java\pages`](src/test/java/pages).
 
 6. Edite o arquivo <b>page</b> utilizando o seguinte padrão:
 
@@ -140,7 +140,7 @@ public class ProductsPage extends GeneralPage {
 }
 ```
 
-7. Cadastre o arquivo <b>NomeDaFuncionalidade<span style="color: rgb(222, 0, 211)">Locator</span>.java</b> em [`SelniumBeta\src\test\java\locators`](src/test/java/locators).
+7. Cadastre o arquivo <b>NomeDaFuncionalidade<span style="color: rgb(222, 0, 211)">Locator</span>.java</b> em [`SeleniumBeta\src\test\java\locators`](src/test/java/locators).
 
 8. Edite o arquivo <b>locator</b> utilizando o seguinte padrão:
 
