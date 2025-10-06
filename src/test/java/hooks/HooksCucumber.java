@@ -7,12 +7,14 @@ import io.cucumber.java.After;
 
 public class HooksCucumber {
     @Before
-    public void beforeScenario() {
-        DriverFactory.getDriver();
+    public void beforeScenario(Scenario scenario) {
+        if (!scenario.getUri().toString().contains("/api/")) {
+            DriverFactory.getDriver();
+        }
     }
 
     @After("@Final")
-    public void quitDriver(Scenario scenario) {
+    public void quitDriver() {
         DriverFactory.quitDriver();
     }
 }
