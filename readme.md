@@ -2,7 +2,7 @@
 
 Seja bem vindo ao projeto Automação de testes em Selenium com Java 25!
 
-Aqui será apresentado como configurar o projeto e uma breve explicação de como está estruturado para podermos usa-lo.
+Aqui será apresentado como configurar o projeto e uma breve explicação de como está estruturado para podermos usá-lo.
 
 * Instale o Java JDK 25 e compile o Maven para instalação das dependências do projeto;
 * Instale os plugins Cucumber for Java e Cucumber Scenarios Indexer para o Intellij ou o equivalente para a IDE que

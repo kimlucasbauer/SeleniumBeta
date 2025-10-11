@@ -15,14 +15,31 @@ public class ProductsListAPISteps {
         productsListAPIPage.configApiHelper();
     }
 
-    @Quando("eu envio uma requisicao GET para a lista de produtos")
-    public void euEnvioUmaRequisicaoGETParaAListaDeProdutos() {
-        productsListAPIPage.getApiProductList();
+    @Quando("eu envio uma requisicao (GET|DELETE) para a lista de produtos$")
+    public void euEnvioUmaRequisicaoGETParaAListaDeProdutos(String method) {
+        switch (method) {
+            case "GET":
+                productsListAPIPage.getApiProductList();
+                break;
+            case "DELETE":
+                productsListAPIPage.deleteApiProductList();
+                break;
+        }
     }
 
-    @Entao("o codigo de resposta da api productList deve ser {int}")
-    public void oCodigoDeRespostaDeveSer(int statusCode) {
+    @Entao("o status code da resposta da api productList deve ser {int}")
+    public void oStatusCodeDaRespostaDeveSer(int statusCode) {
         productsListAPIPage.validateStatusCode(statusCode);
+    }
+
+    @E("o response code de resposta da api productList deve ser {int}")
+    public void oResponseCodeDaRespostaDeveSer(int responseCode) {
+        productsListAPIPage.validateResponseCode(responseCode);
+    }
+
+    @E("valido o response header da api de lista de produtos")
+    public void validoOResponseHeaderDaApiDeListaDeProdutos() {
+        productsListAPIPage.validateResponseHeader();
     }
 
     @E("o corpo da resposta deve conter a lista de produtos")

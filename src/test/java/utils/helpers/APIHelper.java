@@ -8,22 +8,34 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import utils.DriverFactory;
 
+import java.util.Map;
+
 public class APIHelper {
 
     private RequestSpecification requestSpecification;
     private String json = "{}";
+    private Map<String, String> formData;
     private Response response;
+    public boolean contentTypeJson = false;
 
     public APIHelper() {
         prepareURLForAPI(DriverFactory.url);
     }
 
-    public void insertJson(String json) {
+    public void insertData(String json) {
         this.json = json;
     }
 
-    public void clearJson() {
-        this.json = "{}";
+    public void insertData(Map<String, String> json) {
+        this.formData = json;
+    }
+
+    public void clearData() {
+        if (contentTypeJson) {
+            this.json = "{}";
+        } else {
+            this.formData = null;
+        }
     }
 
     public void prepareURLForAPI(String environment) {
@@ -36,10 +48,14 @@ public class APIHelper {
             //requestSpecification.header("Authorization", "Bearer ");
         }
         requestSpecification.header("Content-Type", "application/json");
+        contentTypeJson = true;
     }
 
     public void prepareHeaderForAPI(String key, String value) {
         requestSpecification.header(key, value);
+        if (key.equals("Content-Type") && value.contains("json")) {
+            contentTypeJson = true;
+        }
     }
 
     public void sendRequestToEndpoint(String method, String endpoint) {
@@ -63,23 +79,43 @@ public class APIHelper {
     }
 
     public void POST(String endpoint) {
-        response = requestSpecification.body(json).post(endpoint);
+        if (contentTypeJson) {
+            response = requestSpecification.body(json).post(endpoint);
+        } else {
+            response = requestSpecification.formParams(formData).post(endpoint);
+        }
     }
 
     public void GET(String endpoint) {
-        response = requestSpecification.body(json).get(endpoint);
+        if (contentTypeJson) {
+            response = requestSpecification.body(json).get(endpoint);
+        } else {
+            response = requestSpecification.formParams(formData).get(endpoint);
+        }
     }
 
     public void PUT(String endpoint) {
-        response = requestSpecification.body(json).put(endpoint);
+        if (contentTypeJson) {
+            response = requestSpecification.body(json).put(endpoint);
+        } else {
+            response = requestSpecification.formParams(formData).put(endpoint);
+        }
     }
 
     public void DELETE(String endpoint) {
-        response = requestSpecification.body(json).delete(endpoint);
+        if (contentTypeJson) {
+            response = requestSpecification.body(json).delete(endpoint);
+        } else {
+            response = requestSpecification.formParams(formData).delete(endpoint);
+        }
     }
 
     public void PATCH(String endpoint) {
-        response = requestSpecification.body(json).patch(endpoint);
+        if (contentTypeJson) {
+            response = requestSpecification.body(json).patch(endpoint);
+        } else {
+            response = requestSpecification.formParams(formData).patch(endpoint);
+        }
     }
 
     public JsonPath getJsonPath() {

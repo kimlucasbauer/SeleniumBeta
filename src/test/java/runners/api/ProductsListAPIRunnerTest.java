@@ -13,7 +13,8 @@ import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 @SelectClasspathResource("features/api/productsListAPI.feature")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "steps,hooks")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value =
-        "html:target/reports/features/api/productsListAPI.html,"
+        "pretty," +
+                "html:target/reports/features/api/productsListAPI.html,"
                 + "json:target/reports/features/api/productsListAPI.json,"
                 + "junit:target/reports/features/api/productsListAPI.xml")
 public class ProductsListAPIRunnerTest {

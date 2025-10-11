@@ -13,7 +13,8 @@ import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 @SelectClasspathResource("features/modules/contactus.feature")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "steps,hooks")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value =
-        "html:target/reports/features/modules/contactus/contactus.html,"
+        "pretty," +
+                "html:target/reports/features/modules/contactus/contactus.html,"
                 + "json:target/reports/features/modules/contactus/contactus.json,"
                 + "junit:target/reports/features/modules/contactus/contactus.xml")
 public class ContactUsRunnerTest {

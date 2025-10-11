@@ -2,6 +2,7 @@ package pages.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
 import org.junit.Assert;
 import pages.GeneralPage;
@@ -27,11 +28,23 @@ public class ProductsListAPIPage extends GeneralPage {
         jsonPath = apiHelper.getJsonPath();
     }
 
+    public void deleteApiProductList() {
+        apiHelper.DELETE(ENDPOINT);
+        jsonPath = apiHelper.getJsonPath();
+    }
+
     public void validateStatusCode(int statusCode) {
         apiHelper.validateStatusCode(statusCode);
+    }
 
-        int responseCode = jsonPath.getInt("responseCode");
-        dsl.compare(statusCode, responseCode);
+    public void validateResponseCode(int responseCode) {
+        dsl.compare(responseCode, jsonPath.getInt("responseCode"));
+    }
+
+    public void validateResponseHeader() {
+        Headers headers = apiHelper.getResponse().getHeaders();
+        dsl.compare("Content-Type=text/html; charset=utf-8", headers.get("Content-Type").toString());
+        dsl.compare("status=200 OK", headers.get("status").toString());
     }
 
     public void validateProductsListResponse() {

@@ -13,7 +13,8 @@ import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 @SelectClasspathResource("features/others/login.feature")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "steps,hooks")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value =
-        "html:target/reports/features/others/login.html,"
+        "pretty," +
+                "html:target/reports/features/others/login.html,"
                 + "json:target/reports/features/others/login.json,"
                 + "junit:target/reports/features/others/login.xml")
 public class LoginRunnerTest {
