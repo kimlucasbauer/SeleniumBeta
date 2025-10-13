@@ -14,8 +14,8 @@ import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "steps,hooks")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value =
         "pretty," +
-                "html:target/reports/features/modules/products/products.html,"
-                + "json:target/reports/features/modules/products/products.json,"
-                + "junit:target/reports/features/modules/products/products.xml")
+                "html:target/reports/features/modules/shopping.html,"
+                + "json:target/reports/features/modules/shopping.json,"
+                + "junit:target/reports/features/modules/shopping.xml")
 public class ShoppingRunnerTest {
 }
