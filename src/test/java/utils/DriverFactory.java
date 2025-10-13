@@ -54,7 +54,10 @@ public class DriverFactory {
         argumentos.add("--no-sandbox");
         argumentos.add("--mute-audio");
 
-        if (headless) argumentos.add("--headless");
+        if (headless) {
+            argumentos.add("--headless");
+            argumentos.add("--window-size=1382,735");
+        }
 
         browser = Browsers.getBrowser(browserName);
 
