@@ -23,6 +23,7 @@
                 <version>3.0.0</version>
                 <configuration>
                     <includes>
+                        <include>**/ApiTestRunnerTest.java</include>
                         <include>**/LoginRunnerTest.java</include>
                         <include>**/ContactUsRunnerTest.java</include>
                         <include>**/ShoppingRunnerTest.java</include>
