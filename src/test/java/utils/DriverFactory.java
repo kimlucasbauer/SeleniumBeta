@@ -23,7 +23,7 @@ public class DriverFactory {
     public static Browsers browser;
     public static String url = Utils.getEnvOrDefault("URL", "https://automationexercise.com");
     public static Boolean headless = Boolean.parseBoolean(Utils.getEnvOrDefault("HEADLESS", "false"));
-    public static Integer TIMEOUT = 90;
+    public static Integer TIMEOUT = 60;
 
     public static JavascriptExecutor getJavascriptExecutor() {
         if (driver != null) {
@@ -34,6 +34,10 @@ public class DriverFactory {
         } else {
             throw new NullPointerException("WebDriver is null. Cannot use JavascriptExecutor.");
         }
+    }
+
+    public static boolean isDriverNull() {
+        return driver == null;
     }
 
     public static WebDriver getDriver() {

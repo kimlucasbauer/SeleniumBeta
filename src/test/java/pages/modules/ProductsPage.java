@@ -15,7 +15,7 @@ public class ProductsPage extends GeneralPage {
         this.itens = itens;
         for (Map<String, String> item : itens) {
             for (int i = 0; i < Integer.parseInt(item.get("quantidade")); i++) {
-                dsl.click(ADD_PRODUCT_BUTTON.setValue("ITEM", item.get("item")).replace("itemName", item.get("nome item")));
+                dsl.click(ADD_PRODUCT_BUTTON.setValue("ITEM", item.get("item")).replace("itemName", "teste"));//item.get("nome item")
                 dsl.click(CONTINUE_SHOPING_BUTTON);
             }
         }
